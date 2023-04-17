@@ -145,11 +145,11 @@ plankton()
 
 ```javascript
 export default {
-    index: async (req, res) => {
+    index: (req, res) => {
         res.render('index.ejs', { action: 'index' })
     },
 
-    about: async (req, res) => {
+    about: (req, res) => {
         res.render('about.ejs', { action: 'about' })
     }
 }
