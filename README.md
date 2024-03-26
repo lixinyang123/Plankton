@@ -86,3 +86,5 @@ app.map('/', (req, res) => {
 
 app.build().start(8080)
 ```
+
+> You can view more in the example folder
