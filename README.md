@@ -87,4 +87,4 @@ app.map('/', (req, res) => {
 app.build().start(8080)
 ```
 
-> You can view more in the example folder
+You can view more in the [example](https://github.com/lixinyang123/Plankton/tree/main/example) folder
