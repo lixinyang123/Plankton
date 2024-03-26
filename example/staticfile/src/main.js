@@ -7,6 +7,8 @@ let app = new App()
 // default is src/wwwroot
 app.use(new StaticFile())
 
+app.use(new StaticFile('static', 'test'))
+
 app.map('/', (req, res) => {
     res.redirect('/index.html')
 })
