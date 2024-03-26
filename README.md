@@ -1,6 +1,6 @@
 # Plankton
 
-Sample, Fast, Zero dependenecs Node.js mvc web framework
+Sample, Fast, Zero dependenecs Node.js MVC web framework
 
 ### basic
 
