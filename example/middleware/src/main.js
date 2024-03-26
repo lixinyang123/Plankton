@@ -1,5 +1,5 @@
-import { App } from '../../lib/app.js'
-import { Middleware } from '../../lib/middleware.js'
+import { App } from '../../../lib/app.js'
+import { Middleware } from '../../../lib/middleware.js'
 import { Test } from './test.js'
 
 let app = new App()

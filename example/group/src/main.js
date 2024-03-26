@@ -1,4 +1,4 @@
-import { App } from '../../lib/app.js'
+import { App } from '../../../lib/app.js'
 
 let app = new App()
 

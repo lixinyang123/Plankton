@@ -1,4 +1,4 @@
-import { App } from '../../lib/app.js'
+import { App } from '../../../lib/app.js'
 
 new App().map('/', (req, res) => {
     res.end('hello world')
