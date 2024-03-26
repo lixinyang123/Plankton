@@ -1,0 +1,9 @@
+{
+  "name": "plankton",
+  "version": "0.1.0",
+  "description": "Fast, Sample, Zero dependenecs Node.js mvc web framework",
+  "main": "test/main.js",
+  "author": "lllxy",
+  "type": "module",
+  "license": "MIT"
+}
