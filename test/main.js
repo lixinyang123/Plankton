@@ -12,7 +12,7 @@ await util.test('Server start', async () => {
     })
 
     await util.sleep(1000)
-    await $`curl -s http://localhost:8081`
+    await $`curl -s http://localhost:8080`
     console.log('\n')
     await app.dispose()
 })
