@@ -1,5 +1,7 @@
 # Plankton
 
+[![build](https://github.com/lixinyang123/Plankton/actions/workflows/test.yml/badge.svg)](https://github.com/lixinyang123/Plankton/actions/workflows/test.yml)
+
 Sample, Fast, Zero dependency Node.js MVC web framework
 
 ### Basic
