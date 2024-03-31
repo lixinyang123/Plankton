@@ -44,7 +44,8 @@ app.build().start(8080)
 
 ### MVC
 
-- main.js
+- src/main.js
+
 ```javascript
 new App()
     .mapController()
@@ -52,7 +53,8 @@ new App()
     .start(8080)
 ```
 
-- controllers/home.js
+- src/controllers/home.js
+
 ```javascript
 export default {
     index: async (req, res) => {
@@ -65,11 +67,54 @@ export default {
 }
 ```
 
-- views/index.ejs
+- src/views/index.ejs
+
 ```html
 <body>
     <h1>Hello world from action: <%= action %></h1>
 </body>
+```
+
+### Layout
+
+- src/views/_layout.ejs
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+</head>
+<body>
+    <header>Header</header>
+        <%{{ content }}%>
+    <footer>Footer</footer>
+</body>
+</html>
+```
+
+- src/views/home/index.ejs
+
+```html
+<%{ '../_layout.ejs' }%>
+
+<%{ content %>
+    <div>
+        <% for (let i = 0; i < 5; i++) { %>
+            <h1>Hello <%= world %></h1>
+        <% } %>
+    </div>
+<%} %>
+```
+
+- src/main.js
+
+```javascript
+new App().map('/', (req, res) => {
+    res.render('index.ejs', { world: 'world' })
+}).build().start(8080)
 ```
 
 ### StaticFile
@@ -85,6 +130,16 @@ app.map('/', (req, res) => {
 })
 
 app.build().start(8080)
+```
+
+### Cors
+
+```javascript
+new App()
+    .use(new Cors())
+    .map('/', (req, res) => {
+        res.end('hello world')
+    }).build().start(8080)
 ```
 
 You can view more in the [example](https://github.com/lixinyang123/Plankton/tree/main/example) folder
