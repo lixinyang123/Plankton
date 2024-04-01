@@ -25,5 +25,5 @@ jobs:
 
     - name: Publish
       run: |
-        npmrc=$(cat .npmrc)${{ secrets.SECRET_KEY }}
+        echo '$(cat .npmrc)${{ secrets.SECRET_KEY }}' > .npmrc
         npm publish --access public
