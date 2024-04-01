@@ -27,7 +27,7 @@ yarn add @lixinyang123/plankton
 
 ## Quick Start
 
-You need create a nodejs project first
+You need create a nodejs project first.
 
 ```bash
 yarn init
@@ -36,7 +36,7 @@ mkdir src
 touch src/main.js
 ```
 
-copy this code to `src/main.js`
+copy this code to `src/main.js`.
 
 ```javascript
 import { Plankton } from '@lixinyang123/plankton'
@@ -46,13 +46,14 @@ new Plankton()
         res.end('hello world')
     })
     .build()
-    .start(8080)
+    .start()
 ```
 
-at last, you can start the webapp
+Finally, you can launch your first web app.
 
 ```bash
 node src/main.js
+curl localhost:8080
 ```
 
 ## Usage
