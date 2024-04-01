@@ -33,7 +33,7 @@ You need create a nodejs project first
 yarn init
 yarn add @lixinyang123/plankton
 mkdir src
-tourch src/main.js
+touch src/main.js
 ```
 
 copy this code to `src/main.js`
