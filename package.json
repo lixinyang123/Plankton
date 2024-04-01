@@ -1,10 +1,17 @@
 {
-  "name": "plankton",
+  "name": "@lixinyang123/plankton",
   "version": "0.1.0",
   "description": "Fast, Sample, Zero dependenecs Node.js mvc web framework",
   "author": "lllxy",
   "type": "module",
   "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "lib/"
+  ],
   "scripts": {
     "test": "node test/main.js"
   },
