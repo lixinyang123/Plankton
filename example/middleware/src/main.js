@@ -1,8 +1,7 @@
-import { App } from '../../../lib/app.js'
-import { Middleware } from '../../../lib/middleware.js'
+import { Plankton, Middleware } from '@lixinyang123/plankton'
 import { Test } from './test.js'
 
-let app = new App()
+let app = new Plankton()
 
 // create middleware
 

@@ -4,20 +4,73 @@
 ![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40lixinyang123%2Fplankton)
 [![CI](https://github.com/lixinyang123/Plankton/actions/workflows/ci.yml/badge.svg)](https://github.com/lixinyang123/Plankton/actions/workflows/ci.yml)
 
-Sample, Fast, Zero dependency Node.js web framework
+[Plankton](https://www.npmjs.com/package/@lixinyang123/plankton) is a simple, fast, zero-dependency web framework for Node.js
 
-### Basic
+#### Features
+
+- Simple
+- Fast
+- Zero-dependency
+- Small size
+- Support mvc
+- Built-in template engine
+
+## Install
+
+This is a [Node.js](https://nodejs.org/) module available through the [npm](https://www.npmjs.com/).
+
+```bash
+npm install @lixinyang123/plankton
+# or
+yarn add @lixinyang123/plankton
+```
+
+## Quick Start
+
+You need create a nodejs project first
+
+```bash
+yarn init
+yarn add @lixinyang123/plankton
+mkdir src
+tourch src/main.js
+```
+
+copy this code to `src/main.js`
 
 ```javascript
-new App().map('/', (req, res) => {
+import { Plankton } from '@lixinyang123/plankton'
+
+new Plankton()
+    .map('/', (req, res) => {
+        res.end('hello world')
+    })
+    .build()
+    .start(8080)
+```
+
+at last, you can start the webapp
+
+```bash
+node src/main.js
+```
+
+## Usage
+
+Here are some basic usages,  You can find more in the [example](https://github.com/lixinyang123/Plankton/tree/main/example) folder.
+
+#### Basic
+
+```javascript
+new Plankton().map('/', (req, res) => {
     res.end('hello world')
 }).build().start(8080)
 ```
 
-### Group
+#### Group
 
 ```javascript
-let app = new App()
+let app = new Plankton()
 
 app.mapGroup('api', group => {
     group.map('/', (req, res) => {
@@ -28,10 +81,10 @@ app.mapGroup('api', group => {
 app.build().start(8080)
 ```
 
-### Middleware
+#### Middleware
 
 ```javascript
-let app = new App()
+let app = new Plankton()
 
 app.use(async (req, res, next) => {
     console.log('middleware start')
@@ -46,12 +99,12 @@ app.map('/', (req, res) => {
 app.build().start(8080)
 ```
 
-### MVC
+#### MVC
 
 - src/main.js
 
 ```javascript
-new App()
+new Plankton()
     .mapController()
     .build()
     .start(8080)
@@ -79,7 +132,7 @@ export default {
 </body>
 ```
 
-### Layout
+#### Layout
 
 - src/views/_layout.ejs
 
@@ -116,18 +169,19 @@ export default {
 - src/main.js
 
 ```javascript
-new App().map('/', (req, res) => {
+new Plankton().map('/', (req, res) => {
     res.render('index.ejs', { world: 'world' })
 }).build().start(8080)
 ```
 
-### StaticFile
+#### StaticFile
 
 ```javascript
-let app = new App()
+let app = new Plankton()
 
 // map static file
-app.use(new StaticFile('wwwroot'))
+app.useStaticFile()
+app.useStaticFile('static', 'test')
 
 app.map('/', (req, res) => {
     res.redirect('/index.html')
@@ -136,14 +190,24 @@ app.map('/', (req, res) => {
 app.build().start(8080)
 ```
 
-### Cors
+#### Cors
 
 ```javascript
-new App()
-    .use(new Cors())
+new Plankton()
+    .useCors()
     .map('/', (req, res) => {
         res.end('hello world')
     }).build().start(8080)
 ```
 
-You can view more in the [example](https://github.com/lixinyang123/Plankton/tree/main/example) folder
+#### Logger
+
+```javascript
+new Plankton()
+    .useLogger((msg, type) => {
+        // handler...
+    })
+    .map('/', (req, res) => {
+        res.end('hello world')
+    }).build().start(8080)
+```

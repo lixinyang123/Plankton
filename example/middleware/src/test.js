@@ -1,4 +1,4 @@
-import { Middleware } from "../../../lib/middleware.js"
+import { Middleware } from '@lixinyang123/plankton'
 
 export class Test extends Middleware {
     constructor() {

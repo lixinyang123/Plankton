@@ -1,6 +1,6 @@
-import { App } from '../../../lib/app.js'
+import { Plankton } from '@lixinyang123/plankton'
 
-let app = new App()
+let app = new Plankton()
 
 // map controller default
 app.mapController()

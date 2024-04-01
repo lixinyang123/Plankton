@@ -1,5 +1,5 @@
-import { App } from '../../../lib/app.js'
+import { Plankton } from '@lixinyang123/plankton'
 
-new App().map('/', (req, res) => {
+new Plankton().map('/', (req, res) => {
     res.end('hello world')
 }).build().start(8080)

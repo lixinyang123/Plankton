@@ -1,13 +1,12 @@
-import { App } from '../../../lib/app.js'
-import { StaticFile } from '../../../lib/middleware/staticfile.js'
+import { Plankton } from '@lixinyang123/plankton'
 
-let app = new App()
+let app = new Plankton()
 
 // use static file
 // default is src/wwwroot
-app.use(new StaticFile())
+app.useStaticFile()
 
-app.use(new StaticFile('static', 'test'))
+app.useStaticFile('static', 'test')
 
 app.map('/', (req, res) => {
     res.redirect('/index.html')

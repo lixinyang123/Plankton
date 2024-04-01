@@ -1,8 +1,7 @@
-import { App } from '../../../lib/app.js'
-import { Cors } from '../../../lib/middleware/cors.js'
+import { Plankton } from '@lixinyang123/plankton'
 
-new App()
-    .use(new Cors())
+new Plankton()
+    .useCors()
     .map('/', (req, res) => {
         res.end('hello world')
     }).build().start(8080)
