@@ -1,8 +1,10 @@
 # Plankton
 
-[![Test](https://github.com/lixinyang123/Plankton/actions/workflows/test.yml/badge.svg)](https://github.com/lixinyang123/Plankton/actions/workflows/test.yml)
+![NPM Version](https://img.shields.io/npm/v/%40lixinyang123%2Fplankton)
+![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40lixinyang123%2Fplankton)
+[![CI](https://github.com/lixinyang123/Plankton/actions/workflows/ci.yml/badge.svg)](https://github.com/lixinyang123/Plankton/actions/workflows/ci.yml)
 
-Sample, Fast, Zero dependency Node.js MVC web framework
+Sample, Fast, Zero dependency Node.js web framework
 
 ### Basic
 
