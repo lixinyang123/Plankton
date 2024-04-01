@@ -2,12 +2,14 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
 
-  build-image:
+  test:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v4
 
@@ -19,11 +21,12 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
-    needs: build-image
+    needs: test
+
     steps:
     - uses: actions/checkout@v4
 
     - name: Publish
-      run: |
-        echo '$(cat .npmrc)${{ secrets.SECRET_KEY }}' > .npmrc
+      run: |        
+        echo ${{ secrets.SECRET_KEY }} >> .npmrc
         npm publish --access public
