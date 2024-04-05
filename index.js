@@ -1,15 +1,13 @@
-import { App } from './lib/app.js'
+import { Plankton } from './lib/plankton.js'
 import { Middleware } from './lib/middleware.js'
 import { Logger } from './lib/logger.js'
 
 export {
-    App as Plankton,
+    Plankton,
     Middleware,
     Logger
 }
 
-export default { 
-    Plankton: App,
-    Middleware,
-    Logger
+export default function() {
+    return new Plankton()
 }

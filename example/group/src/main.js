@@ -1,6 +1,6 @@
-import { Plankton } from '@lixinyang123/plankton'
+import plankton from '@lixinyang123/plankton'
 
-let app = new Plankton()
+let app = plankton()
 
 app.map('/', (req, res) => {
     res.end('hello world')

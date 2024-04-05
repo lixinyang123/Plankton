@@ -39,9 +39,9 @@ touch src/main.js
 copy this code to `src/main.js`.
 
 ```javascript
-import { Plankton } from '@lixinyang123/plankton'
+import plankton from '@lixinyang123/plankton'
 
-new Plankton()
+plankton()
     .map('/', (req, res) => {
         res.end('hello world')
     })
@@ -63,41 +63,71 @@ Here are some basic usages,  You can find more in the [example](https://github.c
 #### Basic
 
 ```javascript
-new Plankton().map('/', (req, res) => {
+plankton().map('/', (req, res) => {
     res.end('hello world')
-}).build().start(8080)
+}).build().start()
 ```
 
 #### Group
 
 ```javascript
-let app = new Plankton()
-
-app.mapGroup('api', group => {
+plankton().mapGroup('api', group => {
     group.map('/', (req, res) => {
         res.end('hello world')
     })
-})
-
-app.build().start(8080)
+}).build().start()
 ```
 
 #### Middleware
 
+- src/main.js
+
 ```javascript
-let app = new Plankton()
+import plankton from '@lixinyang123/plankton'
+import { TestMiddleware } from './middlewares/test.js'
+
+let app = plankton()
 
 app.use(async (req, res, next) => {
-    console.log('middleware start')
+    console.log('middleware 1 start')
     await next(req, res)
-    console.log('middleware end')
+    console.log('middleware 1 end')
 })
+
+app.use(new TestMiddleware())
 
 app.map('/', (req, res) => {
     res.end('hello world')
 })
 
-app.build().start(8080)
+app.build().start()
+```
+
+- src/middlewares/test.js
+
+```javascript
+import { Middleware } from '@lixinyang123/plankton'
+
+export class TestMiddleware extends Middleware {
+    constructor() {
+        let func = async (req, res, next) => {
+            console.log('middleware 2 start')
+            await next(req, res)
+            console.log('middleware 2 end')
+        }
+
+        super(func)
+    }
+}
+```
+
+`curl localhost:8080`, You can see the output
+
+```bash
+middleware 1 start
+middleware 2 start
+middleware 2 end
+middleware 1 end
 ```
 
 #### MVC
@@ -105,10 +135,10 @@ app.build().start(8080)
 - src/main.js
 
 ```javascript
-new Plankton()
+plankton()
     .mapController()
     .build()
-    .start(8080)
+    .start()
 ```
 
 - src/controllers/home.js
@@ -170,15 +200,15 @@ export default {
 - src/main.js
 
 ```javascript
-new Plankton().map('/', (req, res) => {
+plankton().map('/', (req, res) => {
     res.render('index.ejs', { world: 'world' })
-}).build().start(8080)
+}).build().start()
 ```
 
 #### StaticFile
 
 ```javascript
-let app = new Plankton()
+let app = plankton()
 
 // map static file
 app.useStaticFile()
@@ -188,27 +218,27 @@ app.map('/', (req, res) => {
     res.redirect('/index.html')
 })
 
-app.build().start(8080)
+app.build().start()
 ```
 
 #### Cors
 
 ```javascript
-new Plankton()
+plankton()
     .useCors()
     .map('/', (req, res) => {
         res.end('hello world')
-    }).build().start(8080)
+    }).build().start()
 ```
 
 #### Logger
 
 ```javascript
-new Plankton()
+plankton()
     .useLogger((msg, type) => {
         // handler...
     })
     .map('/', (req, res) => {
         res.end('hello world')
-    }).build().start(8080)
+    }).build().start()
 ```

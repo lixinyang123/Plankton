@@ -1,6 +1,6 @@
-import { Plankton } from '@lixinyang123/plankton'
+import plankton from '@lixinyang123/plankton'
 
-new Plankton()
+plankton()
     .useCors()
     .map('/', (req, res) => {
         res.end('hello world')

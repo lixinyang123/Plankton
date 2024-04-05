@@ -1,5 +1,5 @@
-import { Plankton } from '@lixinyang123/plankton'
+import plankton from '@lixinyang123/plankton'
 
-new Plankton().map('/', (req, res) => {
+plankton().map('/', (req, res) => {
     res.end('hello world')
 }).build().start(8080)
