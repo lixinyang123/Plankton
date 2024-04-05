@@ -1,11 +1,11 @@
 import 'zx/globals'
-import { App } from '../lib/app.js'
+import plankton from '../index.js'
 import util from './util.js'
 
 // Test server start
 
 await util.test('Server start', async () => {
-    let app = new App()
+    let app = plankton()
 
     new Promise(() => {
         app.build().start(8080)
