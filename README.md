@@ -235,7 +235,7 @@ plankton()
 
 ```javascript
 plankton()
-    .useLogger((msg, type) => {
+    .useLogger((msg, level) => {
         // handler...
     })
     .map('/', (req, res) => {
