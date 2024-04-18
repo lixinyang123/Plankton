@@ -18,6 +18,7 @@ await util.test('Server start', async () => {
 
 // Link dependence
 await $`yarn link`
+await $`yarn link @lixinyang123/plankton`
 
 await util.test('Basic example', async () => {
     await util.runExample('example/basic', async () => {
