@@ -1,3 +1,5 @@
+import 'zx/globals'
+
 let passed = []
 let failed = []
 
@@ -32,6 +34,16 @@ export default {
             console.error(err)
             failed.push(name)
         }
+    },
+
+    async runExample(path, callback) {
+        let cwd = process.cwd()
+        cd(path)
+        $`node src/main.js & echo $! > .pid`
+        await sleep(1000)
+        await callback()
+        await $`kill $(cat .pid) && rm .pid`
+        cd(cwd)
     },
 
     report() {

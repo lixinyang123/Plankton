@@ -13,12 +13,33 @@ await util.test('Server start', async () => {
 
     await util.sleep(1000)
     await $`curl -s http://localhost:8080`
-    console.log('\n')
     await app.dispose()
 })
 
-await util.test('Basic server', async () => {
-    await $`echo 'Run basic server example'`
+// Link dependence
+await $`yarn link`
+
+await util.test('Basic example', async () => {
+    await util.runExample('example/basic', async () => {
+        await $`curl -s http://localhost:8080`
+    })
+})
+
+await util.test('Controller example', async () => {
+    await util.runExample('example/controller', async () => {
+        await $`curl -s http://localhost:8080`
+        await $`curl -s http://localhost:8080/home`
+        await $`curl -s http://localhost:8080/home/index`
+        await $`curl -s http://localhost:8080/blog`
+        await $`curl -s http://localhost:8080/blog/index`
+        await $`curl -s http://localhost:8080/about`
+        await $`curl -s http://localhost:8080/about/index`
+        await $`curl -s http://localhost:8080/api/v1`
+        await $`curl -s http://localhost:8080/api/v1/home`
+        await $`curl -s http://localhost:8080/api/v1/home/index`
+        await $`curl -s http://localhost:8080/api/v1/blog`
+        await $`curl -s http://localhost:8080/api/v1/blog/index`
+    })
 })
 
 util.report()
