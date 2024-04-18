@@ -36,14 +36,20 @@ export default {
         }
     },
 
-    async runExample(path, callback) {
+    async testExample(path, callback) {
         let cwd = process.cwd()
-        cd(path)
-        $`node src/main.js & echo $! > .pid`
-        await sleep(1000)
-        await callback()
-        await $`kill $(cat .pid) && rm .pid`
-        cd(cwd)
+
+        await this.test(path, async () => {
+            cd(path)
+            $`node src/main.js & echo $! > .pid`
+            await sleep(1000)
+            await callback()
+        }).catch(err => {
+            throw err
+        }).finally(async () => {
+            await $`kill $(cat .pid) && rm .pid`
+            cd(cwd)
+        })
     },
 
     report() {
