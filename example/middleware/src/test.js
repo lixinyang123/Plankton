@@ -3,9 +3,9 @@ import { Middleware } from '@lixinyang123/plankton'
 export class Test extends Middleware {
     constructor() {
         let func = async (req, res, next) => {
-            console.log('middleware 3 start')
+            res.write('<p>middleware 3 start</p>')
             await next(req, res)
-            console.log('middleware 3 end')
+            res.write('<p>middleware 3 end</p>')
         }
 
         super(func)

@@ -6,9 +6,9 @@ let app = new Plankton()
 // create middleware
 
 let middleware = new Middleware(async (req, res, next) => {
-    console.log('middleware 1 start')
+    res.write('<p>middleware 1 start</p>')
     await next(req, res)
-    console.log('middleware 1 end')
+    res.write('<p>middleware 1 end</p>')
 })
 
 app.use(middleware)
@@ -16,9 +16,9 @@ app.use(middleware)
 // create middleware with lambda
 
 app.use(async (req, res, next) => {
-    console.log('middleware 2 start')
+    res.write('<p>middleware 2 start</p>')
     await next(req, res)
-    console.log('middleware 2 end')
+    res.write('<p>middleware 2 end</p>')
 })
 
 // create middleware with extends
@@ -28,7 +28,7 @@ app.use(new Test())
 // map endpoint
 
 app.map('/', (req, res) => {
-    res.end('hello world')
+    res.write('hello world')
 })
 
 app.build().start(8080)

@@ -145,12 +145,12 @@ plankton()
 
 ```javascript
 export default {
-    index: (req, res) => {
-        res.render('index.ejs', { action: 'index' })
+    index: async (req, res) => {
+        await res.render('index.ejs', { action: 'index' })
     },
 
-    about: (req, res) => {
-        res.render('about.ejs', { action: 'about' })
+    about: async (req, res) => {
+        await res.render('about.ejs', { action: 'about' })
     }
 }
 ```
@@ -200,8 +200,8 @@ export default {
 - src/main.js
 
 ```javascript
-plankton().map('/', (req, res) => {
-    res.render('index.ejs', { world: 'world' })
+plankton().map('/', async (req, res) => {
+    await res.render('index.ejs', { world: 'world' })
 }).build().start()
 ```
 
