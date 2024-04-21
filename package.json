@@ -1,6 +1,6 @@
 {
   "name": "@lixinyang123/plankton",
-  "version": "0.1.16",
+  "version": "0.2.0",
   "description": "Fast, Sample, Zero dependenecs Node.js mvc web framework",
   "author": "lllxy",
   "type": "module",
