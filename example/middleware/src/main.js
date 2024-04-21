@@ -1,15 +1,15 @@
-import { Plankton, Middleware } from '@lixinyang123/plankton'
-import { Test } from './test.js'
+import plankton from '@lixinyang123/plankton'
+import testMiddleware from './test.js'
 
-let app = new Plankton()
+let app = plankton()
 
 // create middleware
 
-let middleware = new Middleware(async (req, res, next) => {
+let middleware = async (req, res, next) => {
     res.write('<p>middleware 1 start</p>')
     await next(req, res)
     res.write('<p>middleware 1 end</p>')
-})
+}
 
 app.use(middleware)
 
@@ -23,7 +23,7 @@ app.use(async (req, res, next) => {
 
 // create middleware with extends
 
-app.use(new Test())
+app.use(testMiddleware)
 
 // map endpoint
 

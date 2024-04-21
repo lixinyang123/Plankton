@@ -84,7 +84,7 @@ plankton().mapGroup('api', group => {
 
 ```javascript
 import plankton from '@lixinyang123/plankton'
-import { TestMiddleware } from './middlewares/test.js'
+import TestMiddleware from './middlewares/test.js'
 
 let app = plankton()
 
@@ -94,7 +94,7 @@ app.use(async (req, res, next) => {
     console.log('middleware 1 end')
 })
 
-app.use(new TestMiddleware())
+app.use(TestMiddleware)
 
 app.map('/', (req, res) => {
     res.end('hello world')
@@ -106,18 +106,10 @@ app.build().start()
 - src/middlewares/test.js
 
 ```javascript
-import { Middleware } from '@lixinyang123/plankton'
-
-export class TestMiddleware extends Middleware {
-    constructor() {
-        let func = async (req, res, next) => {
-            console.log('middleware 2 start')
-            await next(req, res)
-            console.log('middleware 2 end')
-        }
-
-        super(func)
-    }
+export default async function (req, res, next) {
+    res.write('middleware 2 start')
+    await next(req, res)
+    res.write('middleware 2 end')
 }
 ```
 
