@@ -1,5 +1,5 @@
 import plankton from '@lixinyang123/plankton'
-import testMiddleware from './test.js'
+import TestMiddleware from './test.js'
 
 let app = plankton()
 
@@ -23,7 +23,7 @@ app.use(async (req, res, next) => {
 
 // create middleware with extends
 
-app.use(testMiddleware)
+app.use(TestMiddleware)
 
 // map endpoint
 
