@@ -87,4 +87,19 @@ await util.testExample('example/view', async () => {
     if (!homeHtml.stdout.includes('>Header<') || !homeHtml.stdout.includes('>Footer<'))         throw 'err'
 })
 
+await util.testExample('example/session', async () => {
+    let result = await $`curl -c cookie.txt -s http://localhost:8080`
+    if (!result.stdout.includes('hello world'))                                                 throw 'err'
+
+    let test1 = await $`curl -b cookie.txt -s http://localhost:8080/test`
+    if (!test1.stdout.includes('hello world'))                                                  throw 'err'
+
+    await util.sleep(6000)
+
+    let test2 = await $`curl -b cookie.txt -s http://localhost:8080/test`
+    if (!test2.stdout.includes('hello undefined'))                                              throw 'err'
+
+    await $`rm cookie.txt`
+})
+
 util.report()
