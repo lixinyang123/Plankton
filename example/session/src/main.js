@@ -1,13 +1,13 @@
 import plankton from '@lixinyang123/plankton'
 
 plankton()
-    .useSession(10)
+    .useSession(1000 * 5)
     .map('/', (req, res) => {
-        res.session.set('hi', 'hello')
+        res.session.set('hello', 'world')
         res.end('hello world')
     })
     .map('/test', (req, res) => {
-        res.end(req.session.get('hi'))
+        res.end('hello ' + req.session.get('hello'))
     })
     .build()
     .start(8080)
