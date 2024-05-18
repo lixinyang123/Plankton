@@ -234,3 +234,38 @@ plankton()
         res.end('hello world')
     }).build().start()
 ```
+
+#### Cookie
+
+```javascript
+plankton()
+    .map('/', (req, res) => {
+        res.cookie('hello', 'world')
+        res.end('hello world')
+    })
+    .map('/test', (req, res) => {
+        res.end('hello ' + req.cookie['hello'])
+    })
+    .build()
+    .start(8080)
+```
+
+> res.cookie(key, value, expires, path)
+
+#### Session
+
+```javascript
+plankton()
+    .useSession(/* 1000 * 5 */)
+    .map('/', (req, res) => {
+        res.session.set('hello', 'world')
+        res.end('hello world')
+    })
+    .map('/test', (req, res) => {
+        res.end('hello ' + req.session.get('hello'))
+    })
+    .build()
+    .start(8080)
+```
+
+> default session expires is 30 mins
