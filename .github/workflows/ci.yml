@@ -6,34 +6,33 @@ on:
       - main
 
 jobs:
-
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Restore dependences
-      run: npm install
+      - name: Restore dependences
+        run: npm install
 
-    - name: Test
-      run: npm run test
+      - name: Test
+        run: npm run test
 
   publish:
     runs-on: ubuntu-latest
     needs: test
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Publish
-      run: |
-        latest_version=$(npm search @lixinyang/plankton --json | jq '.[0].version')
-        current_version=$(cat package.json | jq '.version')
+      - name: Publish
+        run: |
+          latest_version=$(npm search @lixinyang/plankton --json | jq '.[0].version')
+          current_version=$(cat package.json | jq '.version')
 
-        if [ $latest_version == $current_version ]; then
-          echo "skip publish"
-        else
-          echo ${{ secrets.SECRET_KEY }} >> .npmrc
-          npm publish --access public
-        fi
+          if [ $latest_version == $current_version ]; then
+            echo "skip publish"
+          else
+            echo ${{ secrets.SECRET_KEY }} >> .npmrc
+            npm publish --access public
+          fi

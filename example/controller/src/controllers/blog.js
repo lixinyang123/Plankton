@@ -1,5 +1,5 @@
 export default {
-    index: (req, res) => {
-        res.end('blog list')
-    }
-}
+  index: (req, res) => {
+    res.end("blog list");
+  },
+};

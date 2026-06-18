@@ -1,5 +1,5 @@
-import { Plankton } from './lib/plankton.js'
+import { Plankton } from "./lib/plankton.js";
 
-export default function() {
-    return new Plankton()
+export default function () {
+  return new Plankton();
 }

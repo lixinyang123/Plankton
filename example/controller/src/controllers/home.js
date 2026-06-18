@@ -1,5 +1,5 @@
 export default {
-    index: (req, res) => {
-        res.end('hello world')
-    }
-}
+  index: (req, res) => {
+    res.end("hello world");
+  },
+};

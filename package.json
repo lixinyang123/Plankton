@@ -13,9 +13,11 @@
     "lib/"
   ],
   "scripts": {
-    "test": "node test/main.js"
+    "test": "node test/main.js",
+    "prettier": "prettier --write ."
   },
   "devDependencies": {
-    "zx": "^8.8.5"
+    "zx": "^8.8.5",
+    "prettier": "^3.6.2"
   }
 }

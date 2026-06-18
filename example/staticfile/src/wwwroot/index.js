@@ -1,3 +1,3 @@
 function btn_click() {
-    location.href = '/test/index.html'
+  location.href = "/test/index.html";
 }

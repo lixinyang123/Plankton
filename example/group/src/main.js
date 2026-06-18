@@ -1,31 +1,31 @@
-import plankton from '@lixinyang123/plankton'
+import plankton from "@lixinyang123/plankton";
 
-let app = plankton()
+let app = plankton();
 
-app.map('/', (req, res) => {
-    res.end('hello world')
-})
+app.map("/", (req, res) => {
+  res.end("hello world");
+});
 
-app.mapGroup('/api', group => {
-    group.mapGroup('/v1', group => {
-        group.map('/hi', (req, res) => {
-            res.end('request path /api/v1/hi')
-        })
+app.mapGroup("/api", (group) => {
+  group.mapGroup("/v1", (group) => {
+    group.map("/hi", (req, res) => {
+      res.end("request path /api/v1/hi");
+    });
 
-        group.map('/hello', (req, res) => {
-            res.end('request path /api/v1/hello')
-        })
-    })
+    group.map("/hello", (req, res) => {
+      res.end("request path /api/v1/hello");
+    });
+  });
 
-    group.mapGroup('/v2', group => {
-        group.map('/hi', (req, res) => {
-            res.end('request path /api/v2/hi')
-        })
+  group.mapGroup("/v2", (group) => {
+    group.map("/hi", (req, res) => {
+      res.end("request path /api/v2/hi");
+    });
 
-        group.map('/hello', (req, res) => {
-            res.end('request path /api/v2/hello')
-        })
-    })
-})
+    group.map("/hello", (req, res) => {
+      res.end("request path /api/v2/hello");
+    });
+  });
+});
 
-app.build().start(8080)
+app.build().start(8080);
