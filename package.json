@@ -1,6 +1,6 @@
 {
   "name": "@lixinyang123/plankton",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Fast, Sample, Zero dependenecs Node.js mvc web framework",
   "author": "lllxy",
   "type": "module",
@@ -16,6 +16,6 @@
     "test": "node test/main.js"
   },
   "devDependencies": {
-    "zx": "^7.2.3"
+    "zx": "^8.8.5"
   }
 }
