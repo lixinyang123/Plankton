@@ -17,8 +17,8 @@ await util.test('Server start', async () => {
 })
 
 // Link dependence
-await $`yarn link`
-await $`yarn link @lixinyang123/plankton`
+await $`npm link`
+await $`npm link @lixinyang123/plankton`
 
 await util.testExample('example/basic', async () => {
     if ((await $`curl -s http://localhost:8080`) != 'hello world')                              throw 'err'
