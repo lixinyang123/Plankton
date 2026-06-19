@@ -28,4 +28,4 @@ app.mapGroup("/api", (group) => {
   });
 });
 
-app.build().start(8080);
+app.start(8080);

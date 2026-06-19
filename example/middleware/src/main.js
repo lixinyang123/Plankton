@@ -31,4 +31,4 @@ app.map("/", (req, res) => {
   res.write("hello world");
 });
 
-app.build().start(8080);
+app.start(8080);

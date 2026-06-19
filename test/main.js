@@ -8,7 +8,7 @@ await util.test("Server start", async () => {
   let app = plankton();
 
   new Promise(() => {
-    app.build().start(8080);
+    app.start(8080);
   });
 
   await util.sleep(1000);

@@ -45,7 +45,6 @@ plankton()
   .map("/", (req, res) => {
     res.end("hello world");
   })
-  .build()
   .start();
 ```
 
@@ -67,7 +66,6 @@ plankton()
   .map("/", (req, res) => {
     res.end("hello world");
   })
-  .build()
   .start();
 ```
 
@@ -80,7 +78,6 @@ plankton()
       res.end("hello world");
     });
   })
-  .build()
   .start();
 ```
 
@@ -106,7 +103,7 @@ app.map("/", (req, res) => {
   res.end("hello world");
 });
 
-app.build().start();
+app.start();
 ```
 
 - src/middlewares/test.js
@@ -133,7 +130,7 @@ middleware 1 end
 - src/main.js
 
 ```javascript
-plankton().mapController().build().start();
+plankton().mapController().start();
 ```
 
 - src/controllers/home.js
@@ -197,7 +194,6 @@ plankton()
   .map("/", async (req, res) => {
     await res.render("index.ejs", { world: "world" });
   })
-  .build()
   .start();
 ```
 
@@ -214,7 +210,7 @@ app.map("/", (req, res) => {
   res.redirect("/index.html");
 });
 
-app.build().start();
+app.start();
 ```
 
 #### Cors
@@ -225,7 +221,6 @@ plankton()
   .map("/", (req, res) => {
     res.end("hello world");
   })
-  .build()
   .start();
 ```
 
@@ -239,7 +234,6 @@ plankton()
   .map("/", (req, res) => {
     res.end("hello world");
   })
-  .build()
   .start();
 ```
 
@@ -254,7 +248,6 @@ plankton()
   .map("/test", (req, res) => {
     res.end("hello " + req.cookie["hello"]);
   })
-  .build()
   .start(8080);
 ```
 
@@ -272,7 +265,6 @@ plankton()
   .map("/test", (req, res) => {
     res.end("hello " + req.session.get("hello"));
   })
-  .build()
   .start(8080);
 ```
 

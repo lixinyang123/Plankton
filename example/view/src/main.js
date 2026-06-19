@@ -10,4 +10,4 @@ app.map("/home", async (req, res) => {
   await res.render("home.ejs", { world: "world" });
 });
 
-app.build().start(8080);
+app.start(8080);

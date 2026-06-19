@@ -9,5 +9,4 @@ plankton()
   .map("/test", (req, res) => {
     res.end("hello " + req.session.get("hello"));
   })
-  .build()
   .start(8080);

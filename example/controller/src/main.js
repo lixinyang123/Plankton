@@ -8,4 +8,4 @@ app.mapController();
 // map controller in other dir
 app.mapController("controllers/apiv1", "/api/v1");
 
-app.build().start(8080);
+app.start(8080);

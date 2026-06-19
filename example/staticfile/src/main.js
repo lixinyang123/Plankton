@@ -12,4 +12,4 @@ app.map("/", (req, res) => {
   res.redirect("/index.html");
 });
 
-app.build().start(8080);
+app.start(8080);
