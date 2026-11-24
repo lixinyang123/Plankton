@@ -6,10 +6,12 @@
   "type": "module",
   "license": "MIT",
   "main": "index.js",
+  "types": "index.d.ts",
   "files": [
     "LICENSE",
     "README.md",
     "index.js",
+    "index.d.ts",
     "lib/"
   ],
   "scripts": {
